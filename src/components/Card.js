@@ -5,7 +5,7 @@ import { excerpt } from "../utility";
 const Card = ({ title, description, imgUrl, id, likes, comments }) => {
   return (
     <div className="col-sm-6 col-lg-4  mb-5">
-      <div className="related-content card  text-decoration-none overflow-hidden h-100">
+      <div className="related-content card   text-decoration-none overflow-hidden h-100">
         <img className="related-img card-img-top" src={imgUrl} alt={title} />
         <div className="related-body card-body p-4">
           <h5 className="title text-start py-2">{title}</h5>
@@ -17,11 +17,11 @@ const Card = ({ title, description, imgUrl, id, likes, comments }) => {
               <span className="text-primary">Read More</span>
             </Link>
             <div>
-              <i className="bi bi-hand-thumbs-up m-2" />
-              {likes.length}
-              <i className="bi bi-chat-left m-2" />
-              {comments.length}
-            </div>
+  <i className="bi bi-hand-thumbs-up m-2" />
+  {Array.isArray(likes) ? likes.length : 0}
+  <i className="bi bi-chat-left m-2" />
+  {Array.isArray(comments) ? comments.length : 0}
+</div>
           </div>
         </div>
       </div>

@@ -107,7 +107,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/lights" element={<Lights />} />
         <Route path="/images" element={<ImageUpload />} />
-        <Route path="/ticker" element={<Ticker />} />
+        {/* <Route path="/ticker" element={<Ticker />} /> */}
         <Route
           path="/auth"
           element={<Auth setActive={setActive} setUser={setUser} />}

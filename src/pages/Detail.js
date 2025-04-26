@@ -159,8 +159,9 @@ const Detail = ({ setActive, user }) => {
                 {blog?.timestamp.toDate().toDateString()}
                 <Like handleLike={handleLike} likes={likes} userId={userId} />
               </span>
-              <p className="text-start">{blog?.description}</p>
+             
               <div className="text-start">
+              <div dangerouslySetInnerHTML={{ __html: blog?.description }} />
                 <Tags tags={blog?.tags} />
               </div>
               <br />

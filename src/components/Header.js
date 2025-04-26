@@ -47,7 +47,7 @@ const Header = ({ active, setActive, user, name, handleLogout }) => {
                     }`}
                     onClick={() => setActive("blogs")}
                   >
-                    Blogs
+                    Items
                   </li>
                 </Link>
 
@@ -62,56 +62,11 @@ const Header = ({ active, setActive, user, name, handleLogout }) => {
                   </li>
                 </Link>
 
-                <Link to="/about" style={{ textDecoration: "none" }}>
-                  <li
-                    className={`nav-item nav-link ${
-                      active === "about" ? "active" : ""
-                    }`}
-                    onClick={() => setActive("about")}
-                  >
-                    About
-                  </li>
-                </Link>
-                <Link to="/lights" style={{ textDecoration: "none" }}>
-                  <li
-                    className={`nav-item nav-link ${
-                      active === "lights" ? "active" : ""
-                    }`}
-                    onClick={() => setActive("lights")}
-                  >
-                    Lights
-                  </li>
-                </Link>
-                <Link to="/images" style={{ textDecoration: "none" }}>
-                  <li
-                    className={`nav-item nav-link ${
-                      active === "images" ? "active" : ""
-                    }`}
-                    onClick={() => setActive("images")}
-                  >
-                    Images
-                  </li>
-                </Link>
-                <Link to="/chat" style={{ textDecoration: "none",  }}>
-                  <li
-                    className={`nav-item nav-link  ${
-                      active === "chat" ? "active" : ""
-                    }`}
-                    onClick={() => setActive("chat")}
-                  >
-                    Chat
-                  </li>
-                </Link>
-                <Link to="/schedule" style={{ textDecoration: "none",  }}>
-                  <li
-                    className={`nav-item nav-link  ${
-                      active === "schedule" ? "active" : ""
-                    }`}
-                    onClick={() => setActive("schedule")}
-                  >
-                    Schedule
-                  </li>
-                </Link>
+               
+              
+               
+              
+               
               </ul>
               <div className="row g-3">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">

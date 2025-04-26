@@ -27,6 +27,7 @@ import Stream from "../components/Stream";
 import Schedule from "../components/Schedule";
 import Stock from "../components/Stock";
 
+
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -132,24 +133,21 @@ const Home = ({ setActive, user, active }) => {
 
   const searchBlogs = async () => {
     const blogRef = collection(db, "blogs");
-    const searchTitleQuery = query(blogRef, where("title", "==", searchQuery));
-    const searchTagQuery = query(
-      blogRef,
-      where("tags", "array-contains", searchQuery)
+    const snapshot = await getDocs(blogRef);   // Fetch ALL blogs
+  
+    let allBlogs = [];
+    snapshot.forEach((doc) => {
+      allBlogs.push({ id: doc.id, ...doc.data() });
+    });
+  
+    // Flexible, case-insensitive search
+    const filteredBlogs = allBlogs.filter((blog) =>
+      blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      blog.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      blog.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
     );
-    const titleSnapshot = await getDocs(searchTitleQuery);
-    const tagSnapshot = await getDocs(searchTagQuery);
-
-    let searchTitleBlogs = [];
-    let searchTagBlogs = [];
-    titleSnapshot.forEach((doc) => {
-      searchTitleBlogs.push({ id: doc.id, ...doc.data() });
-    });
-    tagSnapshot.forEach((doc) => {
-      searchTagBlogs.push({ id: doc.id, ...doc.data() });
-    });
-    const combinedSearchBlogs = searchTitleBlogs.concat(searchTagBlogs);
-    setBlogs(combinedSearchBlogs);
+  
+    setBlogs(filteredBlogs);
     setHide(true);
     setActive("");
   };
@@ -217,7 +215,7 @@ const Home = ({ setActive, user, active }) => {
          
           <Trending blogs={trendBlogs} />
           <div className="col-md-8 ">
-            <div className="blog-heading text-start py-2 mb-4">Fox Lighting</div>
+            <div className="blog-heading text-start py-2 mb-4">Studio Coordination</div>
             {blogs.length === 0 && location.pathname !== "/" && (
               <>
                 <h4>
@@ -254,7 +252,7 @@ const Home = ({ setActive, user, active }) => {
             <FeatureBlogs title={"Most Popular"} blogs={blogs} />
             <Category catgBlogsCount={categoryCount} />
           
-            <Ticker className='space-y-2 ' user={user} />
+            {/* <Ticker className='space-y-2 ' user={user} /> */}
             
           </div>
         </div>
