@@ -8,6 +8,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import { useNavigate, useParams } from "react-router-dom";
 import { addDoc, collection, getDoc, serverTimestamp, doc, updateDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
+import zIndex from "@mui/material/styles/zIndex";
 
 const initialState = {
   title: "",
@@ -51,7 +52,7 @@ const AddEditBlog = ({ user, setActive }) => {
     if (snapshot.exists()) {
       setForm({ ...snapshot.data() });
       setDescription(snapshot.data().description);
-      setImageUrl(snapshot.data().imageUrl || '');
+      setImageUrl(snapshot.data().imgUrl || '');
     }
     setActive(null);
   };
@@ -186,12 +187,13 @@ const AddEditBlog = ({ user, setActive }) => {
                 </select>
               </div>
               <div className="col-12 py-3">
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={(e) => handleImageUpload(e.target.files[0])}
-                />
-              </div>
+  <label>Upload New Image (Optional)</label>
+  <input
+    type="file"
+    accept="image/*"
+    onChange={(e) => handleImageUpload(e.target.files[0])}
+  />
+</div>
               {imgUrl && (
                 <div className="col-12 py-3">
                   <img src={imgUrl} alt="Preview" style={{ maxWidth: "100%" }} />
