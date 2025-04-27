@@ -8,7 +8,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Detail from "./pages/Detail";
 import AddEditBlog from "./pages/AddEditBlog";
-import About from "./pages/About";
+
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Auth from "./pages/Auth";
@@ -18,11 +18,7 @@ import TagBlog from "./pages/TagBlog";
 import CategoryBlog from "./pages/CategoryBlog";
 import ScrollToTop from "./components/ScrollToTop";
 import Blogs from "./pages/Blogs";
-import Lights from "./components/Lights";
-import ImageUpload from "./pages/ImageUpload";
-import Chat from "./pages/Chat";
-import Ticker from "./components/Ticker";
-import Schedule from "./components/Schedule";
+
 
 
 function App() {
@@ -88,8 +84,7 @@ function App() {
             user?.uid ? <AddEditBlog user={user} /> : <Navigate to="/" />
           }
         />
-        <Route path="/chat" element={ user?.uid ? <Chat user={user} setActive={setActive} /> : <Navigate to="/"   />} />
-        <Route path="/schedule" element={<Schedule />} />
+    
 
         <Route
           path="/update/:id"
@@ -104,9 +99,7 @@ function App() {
         <Route path="/blogs" element={<Blogs setActive={setActive} />} />
         <Route path="/tag/:tag" element={<TagBlog setActive={setActive} />} />
         <Route path="/category/:category" element={<CategoryBlog setActive={setActive}  />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/lights" element={<Lights />} />
-        <Route path="/images" element={<ImageUpload />} />
+   
         {/* <Route path="/ticker" element={<Ticker />} /> */}
         <Route
           path="/auth"

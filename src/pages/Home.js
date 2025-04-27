@@ -22,10 +22,7 @@ import Search from "../components/Search";
 import { isEmpty, isNull } from "lodash";
 import { useLocation } from "react-router-dom";
 import Category from "../components/Category";
-import Ticker from "../components/Ticker";
-import Stream from "../components/Stream";
-import Schedule from "../components/Schedule";
-import Stock from "../components/Stock";
+
 
 
 function useQuery() {
@@ -215,7 +212,7 @@ const Home = ({ setActive, user, active }) => {
          
           <Trending blogs={trendBlogs} />
           <div className="col-md-8 ">
-            <div className="blog-heading text-start py-2 mb-4">Studio Coordination</div>
+            <div className="blog-heading text-start py-2 mb-4">Inventory</div>
             {blogs.length === 0 && location.pathname !== "/" && (
               <>
                 <h4>
