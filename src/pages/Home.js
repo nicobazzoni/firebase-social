@@ -242,12 +242,12 @@ const Home = ({ setActive, user, active }) => {
           </div>
          
           <div className="col-md-3">
-            
+           <Category catgBlogsCount={categoryCount} />
             <Search search={search} handleChange={handleChange} />
             <div className="blog-heading text-star  py-2 mb-4">Tags</div>
             <Tags tags={tags} />
             <FeatureBlogs title={"Most Popular"} blogs={blogs} />
-            <Category catgBlogsCount={categoryCount} />
+            
           
             {/* <Ticker className='space-y-2 ' user={user} /> */}
             
