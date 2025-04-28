@@ -155,7 +155,7 @@ const Detail = ({ setActive, user }) => {
           <div className="row mx-0">
             <div className="col-md-8">
               <span className="meta-info text-start">
-                By <p className="author">{blog?.author}</p> -&nbsp;
+                {/* By <p className="author">{blog?.author}</p> -&nbsp; */}
                 {blog?.timestamp.toDate().toDateString()}
                 <Like handleLike={handleLike} likes={likes} userId={userId} />
               </span>
