@@ -27,7 +27,8 @@ const categoryOption = [
   "Chair",
   "Rug",
   "Curtain",
-  "Desk"
+  "Desk",
+  "Stretch Shapes"
 
 ];
 
